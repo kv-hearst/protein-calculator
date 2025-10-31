@@ -89,7 +89,6 @@
         font-size: 20px;
         display: flex;
         justify-content: center;
-        margin-bottom: 20px;
        
     }
     #description {
@@ -181,14 +180,14 @@
     let resultsContainer = document.querySelector('.results-container');
 
     const foods = [
-        { name: 'Salmon', protein: 21, id: 'fish', image: 'assets/salmon.png' },
-        { name: 'Chicken', protein: 19, id: 'poultry', image: 'assets/chicken.png' },
-        { name: 'Greek yogurt', protein: 17, id: 'yogurt', image: 'assets/yogurt.png' },
-        { name: 'Cheese', protein: 14, id: 'cottage', image: 'assets/cheese.png' },
-        { name: 'Beans', protein: 8, id: 'beans', image: 'assets/beans.png' },
-        { name: 'Milk', protein: 8, id: 'milk', image: 'assets/milk.png' },
-        { name: 'Pasta', protein: 8, id: 'pasta', image: 'assets/pasta.png' },
-        { name: 'Nuts', protein: 7, id: 'nuts', image: 'assets/nuts.png' },
+        { name: '3 oz salmon', protein: 21, id: 'fish', image: 'assets/salmon.png' },
+        { name: '3 oz chicken', protein: 19, id: 'poultry', image: 'assets/chicken.png' },
+        { name: '6 oz Greek yogurt', protein: 17, id: 'yogurt', image: 'assets/yogurt.png' },
+        { name: '1/2 cup of cottage cheese', protein: 14, id: 'cottage', image: 'assets/cheese.png' },
+        { name: '1/2 cup of beans', protein: 8, id: 'beans', image: 'assets/beans.png' },
+        { name: '1 cup of milk', protein: 8, id: 'milk', image: 'assets/milk.png' },
+        { name: '1 cup of pasta', protein: 8, id: 'pasta', image: 'assets/pasta.png' },
+        { name: '1/4 cup of nuts', protein: 7, id: 'nuts', image: 'assets/nuts.png' },
         { name: 'Egg', protein: 6, id: 'egg', image: 'assets/egg.png' }
     ];
 
@@ -290,7 +289,7 @@
             return;
         }
 
-        let html = '<div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; padding: 20px 0;">';
+        let html = '<div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">';
         
         result.combination.forEach(item => {
             const quantityBadge = item.quantity > 1 ? `<div style="position: absolute; top: -8px; right: -8px; background: #4376EF; color: white; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 14px; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">×${item.quantity}</div>` : '';
@@ -298,11 +297,19 @@
             html += `
                 <div style="position: relative; width: 80px; text-align: center; transition: transform 0.2s;">
                     ${quantityBadge}
-                    <img src="${item.image}" alt="${item.food}" style="width: 80px; height: 80px; object-fit: contain;" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2280%22 height=%2280%22%3E%3Crect fill=%22%23ddd%22 width=%2280%22 height=%2280%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2214%22 text-anchor=%22middle%22 dy=%22.3em%22%3E🍽️%3C/text%3E%3C/svg%3E';">
-                    <div style="font-size: 12px; color: #555;">${item.food}</div>
-                    <div style="font-size: 16px; color: #4376EF; font-weight: bold;">${item.totalProtein}g</div>
+                    <img src="${item.image}" alt="${item.food}" style="width: 100px; height: 100px; object-fit: contain;" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2280%22 height=%2280%22%3E%3Crect fill=%22%23ddd%22 width=%2280%22 height=%2280%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2214%22 text-anchor=%22middle%22 dy=%22.3em%22%3E🍽️%3C/text%3E%3C/svg%3E';">
+                    <div style="font-size: 14px; color: #333; line-height:1.2;">${item.food}</div>
                 </div>
             `;
+
+            // html += `
+            //     <div style="position: relative; width: 80px; text-align: center; transition: transform 0.2s;">
+            //         ${quantityBadge}
+            //         <img src="${item.image}" alt="${item.food}" style="width: 100px; height: 100px; object-fit: contain;" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2280%22 height=%2280%22%3E%3Crect fill=%22%23ddd%22 width=%2280%22 height=%2280%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2214%22 text-anchor=%22middle%22 dy=%22.3em%22%3E🍽️%3C/text%3E%3C/svg%3E';">
+            //         <div style="font-size: 14px; color: #333;">${item.food}</div>
+            //         <div style="font-size: 16px; color: #4376EF; font-weight: bold;">${item.totalProtein}g</div>
+            //     </div>
+            // `;
         });
         
         html += '</div>';
