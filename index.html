@@ -145,7 +145,7 @@
     
     <div class="main-container">
         <div class="head">
-            <h2>How much protein do you need?</h2>
+            <h2>How much protein do you need each day?</h2>
         </div>
         <div class="calculator-container">
             <div class="input">
@@ -157,7 +157,7 @@
         <div class="results-container">
             <div id="results">grams per day</div>
             <div id="food-combinations"></div>
-            <p id="description">The Recommended Dietary Allowance (RDA) for protein in adults is 0.36 grams per pound of body weight. People who exercise regularly or are peri/menopausal have higher protein needs.</p>
+            <p id="description">The Recommended Dietary Allowance (RDA) for protein in adults is 0.36 gram per pound of body weight. People who exercise regularly or are perimenopausal or menopausal have higher protein needs.</p>
             <div class="button-container">
                 <button id="active">Active</button>
                 <button id="peri">Menopausal</button>
@@ -330,7 +330,7 @@
         let proteinNeeds = isKg ? (weight * 0.8).toFixed(0) : (weight * 0.36).toFixed(0);
         results.textContent = `${proteinNeeds} grams per day`;
 
-        description.textContent = "The Recommended Dietary Allowance (RDA) for protein in adults is 0.36 grams per pound of body weight. People who exercise regularly or are peri/menopausal have higher protein needs.";
+        description.textContent = "The Recommended Dietary Allowance (RDA) for protein in adults is 0.36 gram per pound of body weight. People who exercise regularly or are perimenopausal or menopausal have higher protein needs.";
         
         displayFoodCombination(parseInt(proteinNeeds));
         
@@ -358,7 +358,7 @@
         
         results.textContent = `${proteinRange} grams per day`;
         
-        description.textContent = "Active individuals need more protein to repair and rebuild muscle tissue damaged during exercise. The recommended intake ranges from 0.5-0.8 grams per pound of body weight.";
+        description.textContent = "Active individuals need more protein to repair and rebuild muscle tissue after exercise. The recommended protein intake ranges from 0.5 to 0.8 gram per pound of body weight.";
         
         displayFoodCombination(midpoint);
         
@@ -386,7 +386,7 @@
 
         results.textContent = `${proteinRange} grams per day`;
 
-        description.textContent = "During perimenopause and menopause, higher protein intake of 0.45 to 0.68 grams per pound of body weight helps preserve muscle mass and supports metabolic health.";
+        description.textContent = "During perimenopause and menopause, higher protein intake of 1 to 1.5 grams per kilogram of body weight or 0.45 to 0.68 gram per pound of body weight helps preserve muscle mass.";
         
         displayFoodCombination(midpoint);
         
