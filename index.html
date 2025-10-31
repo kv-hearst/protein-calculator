@@ -47,12 +47,13 @@
     }
     input[type="number"] {
         /* padding: 10px; */
-        font-size: 20px;
+        font-size: 25px;
         border: 0px solid #333;
         border-radius: 5px;
         margin-bottom: 10px;
         width: 60px;
         text-align: center;
+        font-weight: bold;
     }
     #calculate {
         display: flex;
@@ -127,7 +128,17 @@
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 10px;
         }
-    
+                    /* Remove up and down arrows from number input */
+                    input[type="number"]::-webkit-inner-spin-button, 
+                    input[type="number"]::-webkit-outer-spin-button { 
+                        -webkit-appearance: none; 
+                        margin: 0; 
+                    }
+
+                    input[type="number"] {
+                        -moz-appearance: textfield; /* Remove arrows in Firefox */
+                    }
+
 </style>
 </head>
 <body>
@@ -147,7 +158,6 @@
             <div id="results">grams per day</div>
             <div id="food-combinations"></div>
             <p id="description">The Recommended Dietary Allowance (RDA) for protein in adults is 0.36 grams per pound of body weight. People who exercise regularly or are peri/menopausal have higher protein needs.</p>
-            
             <div class="button-container">
                 <button id="active">Active</button>
                 <button id="peri">Menopausal</button>
